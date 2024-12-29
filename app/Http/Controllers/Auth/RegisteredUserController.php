@@ -14,6 +14,8 @@ use DB;
 use App\Models\Users\Subjects;
 use App\Models\Users\User;
 
+use App\Http\Requests\Auth\RegisterRequest;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -35,7 +37,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         DB::beginTransaction();
         try{
