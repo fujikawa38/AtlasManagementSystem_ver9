@@ -4,10 +4,10 @@
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
           @error('over_name')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           @error('under_name')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
@@ -24,10 +24,10 @@
             </div>
           </div>
           @error('over_name_kana')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           @error('under_name_kana')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
@@ -45,7 +45,7 @@
           </div>
           <div class="mt-3">
           @error('mail_address')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
@@ -55,7 +55,7 @@
         </div>
         <div class="mt-3">
           @error('sex')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           <input type="radio" name="sex" class="sex" value="1">
           <label style="font-size:13px">男性</label>
@@ -66,16 +66,16 @@
         </div>
         <div class="mt-3">
           @error('old_year')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           @error('old_month')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           @error('old_day')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           @error('birth_day')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
@@ -162,7 +162,7 @@
         </div>
         <div class="mt-3">
           @error('role')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           <label class="d-block m-0" style="font-size:13px">役職</label>
           <input type="radio" name="role" class="admin_role role" value="1">
@@ -185,7 +185,7 @@
         </div>
         <div class="mt-3">
           @error('password')
-          <div class="error">{{ $message }}</div>
+          <span class="error_message">{{ $message }}</span>
           @enderror
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
