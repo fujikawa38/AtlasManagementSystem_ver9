@@ -43,7 +43,12 @@
       </div>
       <div>
         @if($user->role == 4)
-        <span>選択科目 :</span>
+        <span>選択科目 : </span>
+          @foreach($subjects as $subject)   <!--ChatGPTで調べた-->
+            @if($subject->users->contains('id', $user->id))
+            <span>{{ $subject->subject }}</span>
+            @endif
+          @endforeach
         @endif
       </div>
     </div>
@@ -89,6 +94,9 @@
           </div>
           <div class="selected_engineer">
             <label>選択科目</label>
+            @foreach($subjects as $subject)
+            <div><span>{{ $subject->subject }}</span><input type="checkbox" name="subject" value="{{ $subject->id }}" form="userSearchRequest"></div>
+            @endforeach
           </div>
         </div>
       </div>
