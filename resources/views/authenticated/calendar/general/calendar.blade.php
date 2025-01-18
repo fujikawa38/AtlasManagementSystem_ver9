@@ -14,12 +14,14 @@
     <div class="modal js-modal" id="modalCancel">
       <div class="modal__bg js-modal-close"></div>
       <div class="modal__content">
-        <p class="cancel-modal-day">予約日：<span name="reserve_day"></span></p>
-        <p class="cancel-modal-part">時間：<span name="reserve_part"></span></p>
+        <p>予約日：<span class="cancel-modal-day"></span></p>
+        <p>時間：<span class="cancel-modal-part"></span></p>
         <p>上記の予約をキャンセルしてもよろしいですか？</p>
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-primary d-inline-block" href="">閉じる</a>
-          <input type="submit" class="btn btn-danger d-block" value="キャンセル">
+            <input type="hidden" class="cancel-modal-day-hidden" name="reserve_day" value="" form="deleteParts">
+            <input type="hidden" class="cancel-modal-part-hidden" name="reserve_part" value="" form="deleteParts">
+            <input type="submit" class="btn btn-danger d-block" value="キャンセル" form="deleteParts">
         </div>
       </div>
     </div>
