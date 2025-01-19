@@ -31,13 +31,16 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', [$one_part->setting_reserve , 1 ]) . '">1部</a><span class="">' . 20 - $one_part->limit_users . '</span></p>';   //ChatGPTが天才、<a href="{{ route("calendar.admin.detail", ' . $one_part->setting_reserve . ', ' . 1 .' )}}">1部</a> ←これだと「"{{ route("」の部分をURLと認識する。routeも文字列結合できる？
+      $reserve_count = $one_part->users()->wherePivot('reserve_setting_id', $one_part->id)->count();
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', [$one_part->setting_reserve , 1 ]) . '">1部</a><span class="">' . $reserve_count . '</span></p>';   //ChatGPTが天才、<a href="{{ route("calendar.admin.detail", ' . $one_part->setting_reserve . ', ' . 1 .' )}}">1部</a> ←これだと「"{{ route("」の部分をURLと認識する。routeも文字列結合できる？
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', [$one_part->setting_reserve , 2 ]) . '">2部</a><span class="">' . 20 - $two_part->limit_users . '</span></p>';
+      $reserve_count = $two_part->users()->wherePivot('reserve_setting_id', $two_part->id)->count();
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', [$one_part->setting_reserve , 2 ]) . '">2部</a><span class="">' . $reserve_count . '</span></p>';
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', [$one_part->setting_reserve , 3 ]) . '">3部</a><span class="">' . 20 - $three_part->limit_users . '</span></p>';
+      $reserve_count = $three_part->users()->wherePivot('reserve_setting_id', $three_part->id)->count();
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', [$one_part->setting_reserve , 3 ]) . '">3部</a><span class="">' . $reserve_count . '</span></p>';
     }
     $html[] = '</div>';
 
