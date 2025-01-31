@@ -1,7 +1,10 @@
 <x-guest-layout>
   <form action="{{ route('loginPost') }}" method="POST">
-    <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
-      <div class="border vh-50 w-25">
+    <div class="w-100 vh-100 d-flex flex-column" style="align-items:center; justify-content:center;">
+      <div class="logo_area mb-5">
+        <img src="image/atlas-black.png" class="logo" alt="Atlasロゴ">
+      </div>
+      <div class="border vh-50 w-25 shadow p-3 top_frame">
         <div class="w-75 m-auto pt-5">
           <label class="d-block m-0" style="font-size:13px;">メールアドレス</label>
           <div class="border-bottom border-primary w-100">
@@ -18,7 +21,7 @@
           <input type="submit" class="btn btn-primary" value="ログイン">
         </div>
         <div class="text-center">
-          <a href="{{ route('registerView') }}">新規登録</a>
+          <a href="{{ route('registerView') }}">新規登録はこちら</a>
         </div>
       </div>
       {{ csrf_field() }}

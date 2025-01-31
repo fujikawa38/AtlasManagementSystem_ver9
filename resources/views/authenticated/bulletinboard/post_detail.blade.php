@@ -3,19 +3,23 @@
   <div class="w-50 mt-5">
     <div class="m-3 detail_container">
       <div class="p-3">
+      @error('post_title')
+        <span class="error_message">{{ $message }}</span>
+        <br>
+      @enderror
+      @error('post_body')
+        <span class="error_message">{{ $message }}</span>
+      @enderror
         <div class="detail_inner_head">
-          <div>
+          <div class="post_category">
+            @foreach($post->subCategories as $sub_category)
+              <p class="sub_category">{{ $sub_category->sub_category }}</p>
+            @endforeach
           </div>
-          @error('post_title')
-          <span class="error_message">{{ $message }}</span>
-          @enderror
-          @error('post_body')
-          <span class="error_message">{{ $message }}</span>
-          @enderror
           @if ($post->user->id == Auth::id())
           <div>
-            <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
-            <a href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいですか？')">削除</a>
+            <span class="edit-modal-open btn btn-primary" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
+            <a href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいですか？')" class=" btn btn-danger">削除</a>
           </div>
           @endif
         </div>
@@ -28,8 +32,8 @@
           </p>
           <span class="ml-5">{{ $post->created_at }}</span>
         </div>
-        <div class="detsail_post_title">{{ $post->post_title }}</div>
-        <div class="mt-3 detsail_post">{{ $post->post }}</div>
+        <div class="detail_post_title">{{ $post->post_title }}</div>
+        <div class="mt-3 detail_post">{{ $post->post }}</div>
       </div>
       <div class="p-3">
         <div class="comment_container">
@@ -56,7 +60,9 @@
         <p class="m-0">コメントする</p>
         <textarea class="w-100" name="comment" form="commentRequest"></textarea>
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
-        <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
+        <div class="btn_comment">
+          <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
+        </div>
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
       </div>
     </div>
