@@ -27,6 +27,7 @@ li {
 
 .top_frame {
   border-radius: 10px;
+  background: #fff;
 }
 
 /* サイドバー */
@@ -97,6 +98,10 @@ li {
 
 .adjust-table-btn {
   width: 100%;
+}
+
+.end_accept {
+  color: #212529;
 }
 
 /* スクール予約詳細確認 */
@@ -492,4 +497,13 @@ input.form-control {
 
 .subject_inner {
   display: none;
+}
+
+.user_item {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.user_data {
+  font-weight: bold;
 }

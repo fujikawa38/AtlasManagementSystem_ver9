@@ -26,8 +26,8 @@ class CalendarView{
     $html[] = '<th class="border">水</th>';
     $html[] = '<th class="border">木</th>';
     $html[] = '<th class="border">金</th>';
-    $html[] = '<th class="border">土</th>';
-    $html[] = '<th class="border">日</th>';
+    $html[] = '<th class="border day-sat">土</th>';
+    $html[] = '<th class="border day-sun">日</th>';
     $html[] = '</tr>';
     $html[] = '</thead>';
     $html[] = '<tbody>';
@@ -41,7 +41,7 @@ class CalendarView{
         $toDay = $this->carbon->copy()->format("Y-m-d");
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="past-day calendar-td border">';
+          $html[] = '<td class="past-day calendar-td border '.$day->getClassName().'">';
         }else{
           $html[] = '<td class="calendar-td border '.$day->getClassName().'">';
         }
@@ -66,7 +66,7 @@ class CalendarView{
           }
         }else{
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
+            $html[] = '<p class="m-auto p-0 w-75 end_accept" style="font-size:12px">受付終了</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
             $html[] = $day->selectPart($day->everyDay());
